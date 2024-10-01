@@ -17,12 +17,12 @@ export default function Player({initialName, symbol, isActive, onUpdateName}) {
 
     return( 
         <li className={isActive ? "active" : undefined}>
-        <span className="player">
-        {!isEditing && <span className="player-name">{playerName}</span>}
-        {isEditing && <input type="text" required value={playerName} onChange={handleInputChange}/>}
-        <span className="player-symbol">{symbol}</span>
-        </span>
-        <button onClick={handleEditClick}>{isEditing ? "Save" : "Edit"}</button>
+            <span className="player">
+                {!isEditing && <span className="player-name">{playerName}</span>}
+                {isEditing && <input type="text" required value={playerName} onChange={handleInputChange}/>}
+                <span className="player-symbol">{symbol}</span>
+            </span>
+            <button onClick={handleEditClick}>{isEditing ? "Save" : "Edit"}</button>
         </li>
     );
 }

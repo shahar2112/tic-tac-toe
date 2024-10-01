@@ -21,7 +21,7 @@ function deriveActivePlayer(gameTurns){
   let currPlayer = 'X';
 
   if(gameTurns.length > 0 && gameTurns[0].player === 'X'){ //the first is always the latest player
-    currPlayer = 'O'// if the prev turn was X so currently it's X
+    currPlayer = 'O'// if the prev turn was X so currently it's O
   }
   return currPlayer;
 }
@@ -93,25 +93,25 @@ function App() {
   return (
     <main>
       <div id="game-container">
-      <ol id="players" className="highlight-player">
-      <Player 
-        initialName={PLAYERS.X} 
-        symbol="X" 
-        isActive={activePlayer === 'X'} 
-        onUpdateName={handlePlayerNameChange}
-      />
-      <Player 
-        initialName={PLAYERS.O}
-        symbol="O" 
-        isActive={activePlayer === 'O'} 
-        onUpdateName={handlePlayerNameChange}
-      />
-      </ol>
-      {/* {gameTurns.length === 9 && <GameOver winner={winner} />} */}
-      {(winner || gameTurns.length === 9) && <GameOver winner={winner} onSelectNewMatch={handleNewGame}/>}
-      <GameBoard 
-        onSelectSquare={handleSelectSquare}
-        board={gameBoard}/>
+        <ol id="players" className="highlight-player">
+          <Player 
+            initialName={PLAYERS.X} 
+            symbol="X" 
+            isActive={activePlayer === 'X'} 
+            onUpdateName={handlePlayerNameChange}
+          />
+          <Player 
+            initialName={PLAYERS.O}
+            symbol="O" 
+            isActive={activePlayer === 'O'} 
+            onUpdateName={handlePlayerNameChange}
+          />
+        </ol>
+        {(winner || gameTurns.length === 9) && <GameOver winner={winner} onSelectNewMatch={handleNewGame}/>}
+        <GameBoard 
+          onSelectSquare={handleSelectSquare}
+          board={gameBoard}
+        />
       </div>
       <Log turns={gameTurns}/>
     </main>
